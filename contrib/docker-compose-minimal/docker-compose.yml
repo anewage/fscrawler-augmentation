@@ -1,0 +1,15 @@
+version: '3'
+services:
+  fscrawler:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - ./documents/:/usr/app/data/:ro
+      - ./config/:/usr/app/config/
+
+networks:
+  default:
+    external:
+      name: elastic_elastic
